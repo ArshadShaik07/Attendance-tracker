@@ -1,5 +1,9 @@
 import { Router } from "express";
-import { getAttendance, postAttendance } from "../controllers/studentData.js";
+import {
+	getAttendance,
+	postTimetable,
+	postAttendance,
+} from "../controllers/studentData.js";
 import { registerUser, loginUser } from "../controllers/authUser.js";
 import { protect } from "../middleware/protect.js";
 
@@ -15,7 +19,10 @@ router.post("/login", loginUser);
 // router.post("/logout", logoutUser);
 
 //post timetable
-router.post("/timetable", protect, postAttendance);
+router.post("/timetable", protect, postTimetable);
+
+//post attendance
+router.post("/attendance", protect, postAttendance);
 
 //get attendance
 router.get("/attendance", protect, getAttendance);
