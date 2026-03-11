@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { getAttendance } from "../controllers/studentData.js";
+import { getAttendance, postAttendance } from "../controllers/studentData.js";
 import { registerUser, loginUser } from "../controllers/authUser.js";
 import { protect } from "../middleware/protect.js";
 
@@ -13,6 +13,9 @@ router.post("/login", loginUser);
 
 //logout
 // router.post("/logout", logoutUser);
+
+//post timetable
+router.post("/timetable", protect, postAttendance);
 
 //get attendance
 router.get("/attendance", protect, getAttendance);
