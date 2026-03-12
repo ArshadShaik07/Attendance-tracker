@@ -1,6 +1,7 @@
 import { Router } from "express";
 import {
 	getAttendance,
+	getAttendanceByDate,
 	postTimetable,
 	postAttendance,
 } from "../controllers/studentData.js";
@@ -26,5 +27,8 @@ router.post("/attendance", protect, postAttendance);
 
 //get attendance
 router.get("/attendance", protect, getAttendance);
+
+//get attendance by date
+router.get("/attendance/:date", protect, getAttendanceByDate);
 
 export { router };
